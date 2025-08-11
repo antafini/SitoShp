@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Le Mie Torte</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>Le Mie Torte</h1>
+  <p>Un assaggio delle mie creazioni</p>
+</header>
+
+<section class="gallery">
+<div class="card">
+  <div class="carousel">
+    <img src="images/Bing/bing1.jpg" alt="Torta Kinder di Bing" onclick="openLightbox(this.src)">
+    
+  </div>
+  <h3>Torta Kinder di Bing</h3>
+  <p>Soffice pan di Spagna con crema pasticcera e fragole fresche.</p>
+</div>
+
+<div class="card">
+  <div class="carousel">
+    <img src="images/Frozen/frozen1.jpg" alt="Torta Kinder di Bluey" onclick="openLightbox(this.src)">
+    <img src="images/Frozen/frozen3.jpg" alt="Torta Kinder di Bluey" onclick="openLightbox(this.src)">
+  </div>
+  <h3>Torta Kinder di Frozen</h3>
+  <p>Soffice pan di Spagna con crema pasticcera e fragole fresche.</p>
+</div>
+<div class="card">
+  <div class="carousel">
+    <img src="images/Mini Torta/minitorta1.jpg" alt="Mini Torta Kinder" onclick="openLightbox(this.src)">
+    <img src="images/Mini Torta/minitorta2.jpg" alt="Mini Torta Kinder" onclick="openLightbox(this.src)">
+  </div>
+  <h3>Mini Torta Kinder</h3>
+  <p>Soffice pan di Spagna con crema pasticcera e fragole fresche.</p>
+</div>
+
+<div class="card">
+  <div class="carousel">
+    <img src="images/Bluey/bluey2.jpg" alt="Torta Kinder di Bluey" onclick="openLightbox(this.src)">
+    <img src="images/Bluey/bluey1.jpg" alt="Torta Kinder di Bluey" onclick="openLightbox(this.src)">
+  </div>
+  <h3>Torta Kinder di Bluey</h3>
+  <p>Soffice pan di Spagna con crema pasticcera e fragole fresche.</p>
+</div>
+<div class="card">
+  <div class="carousel">
+    <img src="images/Torta di Pannolini/pannolini4.jpg" alt="Torta Kinder di Bluey" onclick="openLightbox(this.src)">
+    <img src="images/Torta di Pannolini/pannolini3.jpg" alt="Torta fragole intera" onclick="openLightbox(this.src)">
+    <img src="images/Torta di Pannolini/pannolini5.jpg" alt="Torta fragole intera" onclick="openLightbox(this.src)">
+    <img src="images/Torta di Pannolini/pannolini2.jpg" alt="Torta fragole intera" onclick="openLightbox(this.src)">
+    <img src="images/Torta di Pannolini/pannolini1.jpg" alt="Torta fragole intera" onclick="openLightbox(this.src)">
+  </div>
+  <h3>Torta Kinder di Bluey</h3>
+  <p>Soffice pan di Spagna con crema pasticcera e fragole fresche.</p>
+</div>
+</section>
+<div id="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+    <img id="lightbox-img" src="">
+    <span class="next" onclick="changeImage(1)">&#10095;</span>
+  </div>
+
+  <script src="script.js"></script>
+
+<footer>
+  © 2025 Le Mie Torte SHP - Tutti i diritti riservati
+</footer>
+
+</body>
+</html>
