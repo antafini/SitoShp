@@ -182,14 +182,28 @@ function changeImage(direction) {
   const lightboxImg = document.getElementById("lightbox-img");
   
   if (lightboxImg) {
-    // Effetto di transizione
-    lightboxImg.style.opacity = "0.5";
+    // Effetto slide smoothe
+    const slideDirection = direction > 0 ? 'translateX(-100px)' : 'translateX(100px)';
+    
+    // Prima fase: slide out
+    lightboxImg.style.transform = slideDirection;
+    lightboxImg.style.opacity = "0";
     
     // Preload della nuova immagine
     const img = new Image();
     img.onload = () => {
+      // Cambia immagine quando è caricata
       lightboxImg.src = currentGallery[currentIndex];
-      lightboxImg.style.opacity = "1";
+      
+      // Seconda fase: slide in dall'altro lato
+      const slideIn = direction > 0 ? 'translateX(100px)' : 'translateX(-100px)';
+      lightboxImg.style.transform = slideIn;
+      
+      // Animazione di entrata
+      setTimeout(() => {
+        lightboxImg.style.transform = 'translateX(0)';
+        lightboxImg.style.opacity = "1";
+      }, 50);
     };
     img.src = currentGallery[currentIndex];
   }

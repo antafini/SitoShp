@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Le Mie Torte</title>
+  <meta name="description" content="Torte personalizzate Kinder per compleanni a Roma - Bluey, Frozen, Bing e tanto altro">
+  <meta name="keywords" content="torte kinder roma, torte compleanno, bluey, frozen, bing">
+  <meta name="theme-color" content="#ff6b9d">
+  <title>Le Mie Torte - Roma</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,13 +14,13 @@
 <header>
   <h1>Le Mie Torte</h1>
   <p>Un assaggio delle mie creazioni</p>
+  <div class="location">📍 Roma</div>
 </header>
 
 <section class="gallery">
 <div class="card">
   <div class="carousel">
     <img src="images/Bing/bing1.jpg" alt="Torta Kinder di Bing" onclick="openLightbox(this.src)">
-    
   </div>
   <h3>Torta Kinder di Bing</h3>
   <p>Decorata con personaggi di Bing, ideale per feste di compleanno a tema.</p>
@@ -31,6 +34,7 @@
   <h3>Torta Kinder di Frozen</h3>
   <p>Torta scenografica con Elsa e Anna, perfetta per i fan di Frozen.</p>
 </div>
+
 <div class="card">
   <div class="carousel">
     <img src="images/Mini Torta/minitorta1.jpg" alt="Mini Torta Kinder" onclick="openLightbox(this.src)">
@@ -48,28 +52,97 @@
   <h3>Torta Kinder di Bluey</h3>
   <p>Allegra e colorata, con i personaggi di Bluey.</p>
 </div>
+
 <div class="card">
   <div class="carousel">
     <img src="images/Torta di Pannolini/pannolini4.jpg" alt="Torta Kinder di Bluey" onclick="openLightbox(this.src)">
     <img src="images/Torta di Pannolini/pannolini3.jpg" alt="Torta fragole intera" onclick="openLightbox(this.src)">
     <img src="images/Torta di Pannolini/pannolini5.jpg" alt="Torta fragole intera" onclick="openLightbox(this.src)">
     <img src="images/Torta di Pannolini/pannolini2.jpg" alt="Torta fragole intera" onclick="openLightbox(this.src)">
-</div>
+  </div>
   <h3>Torte Di Pannolini</h3>
   <p>Realizzata con pannolini e accessori baby, avvolta in confezione regalo.</p>
 </div>
 </section>
+
+<!-- Sezione Informazioni Pratiche -->
+<section class="info-section">
+  <div class="container">
+    <h2>📋 Informazioni Pratiche</h2>
+    
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-icon">⏰</div>
+        <h3>Tempi di Realizzazione</h3>
+        <p>Le torte vengono preparate su ordinazione con un preavviso di <strong>3-5 giorni lavorativi</strong> per garantire la massima qualità e freschezza.</p>
+      </div>
+      
+      <div class="info-card">
+        <div class="info-icon">🎨</div>
+        <h3>Personalizzazioni</h3>
+        <p>Ogni torta può essere <strong>completamente personalizzata</strong> con il tema, i colori e i personaggi preferiti del festeggiato.</p>
+      </div>
+      
+      <div class="info-card">
+        <div class="info-icon">🚚</div>
+        <h3>Consegna</h3>
+        <p>Ritiro presso zona <strong>Roma</strong> oppure consegna a  domicilio nella zona. Contattami per verificare la disponibilità.</p>
+      </div>
+      
+      <div class="info-card">
+        <div class="info-icon">💝</div>
+        <h3>Come Ordinare</h3>
+        <p>Scrivimi su Instagram con il tema desiderato, la dimensione desiderata e la data dell'evento. Ti fornirò un preventivo personalizzato!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sezione Contatti -->
+<section class="contact-section">
+  <div class="container">
+    <h2>📞 Contatti</h2>
+    <div class="contact-content">
+      <div class="contact-text">
+        <h3>Seguimi su Instagram!</h3>
+        <p>Per ordinare la tua torta personalizzata.</p>
+      </div>
+      
+      <div class="contact-actions">
+        <a href="https://instagram.com/tuoaccount" target="_blank" class="instagram-btn">
+          <span class="instagram-icon">📱</span>
+          <span>@tuoaccount</span>
+        </a>
+        
+        <div class="contact-info">
+          <div class="zone-info">
+            <span class="zone-icon">📍</span>
+            <span><strong>Zona:</strong> Roma e dintorni</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pulsante Instagram Fisso -->
+<div class="floating-instagram">
+  <a href="https://instagram.com/tuoaccount" target="_blank">
+    <span>📱</span>
+  </a>
+</div>
+
 <div id="lightbox">
     <span class="close" onclick="closeLightbox()">&times;</span>
     <span class="prev" onclick="changeImage(-1)">&#10094;</span>
     <img id="lightbox-img" src="">
     <span class="next" onclick="changeImage(1)">&#10095;</span>
-  </div>
+</div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 
 <footer>
-  © 2025 Le Mie Torte SHP - Tutti i diritti riservati
+  © 2025 Le Mie Torte SHP - Roma - Tutti i diritti riservati
 </footer>
 
 </body>
