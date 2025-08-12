@@ -19,8 +19,10 @@ header h1 {
   font-size: 2.8rem;
   font-weight: 700;
   background: linear-gradient(90deg, #ff9aa2, #f78fb3, #a18cd1, #89f7fe);
-  -webkit-background-clip: text;
+  background-clip: text; /* standard */
+  -webkit-background-clip: text; /* per WebKit */
   -webkit-text-fill-color: transparent;
+  color: transparent; /* standard */
   letter-spacing: 2px;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
 }
