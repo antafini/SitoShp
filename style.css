@@ -1,6 +1,12 @@
 /* Import font moderna per mobile */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/* Fix compatibilità mobile */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
 /* CSS Variables ottimizzate per mobile */
 :root {
   --primary: #ff6b9d;
@@ -80,7 +86,6 @@ header p {
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
   display: inline-block;
-  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -138,9 +143,9 @@ header p {
   filter: brightness(1.05);
 }
 
-/* Indicatori per carousel con più immagini */
-.carousel:has(img:nth-child(2))::after {
-  content: '📷 ' attr(data-count, '2+') ' foto';
+/* Indicatore "più foto" semplificato per compatibilità */
+.carousel.multiple::after {
+  content: '📷 Più foto';
   position: absolute;
   top: 12px;
   right: 12px;
@@ -152,55 +157,6 @@ header p {
   font-weight: 500;
   z-index: 2;
   pointer-events: none;
-}
-
-/* Dots indicator per carousel */
-.carousel:has(img:nth-child(2))::before {
-  content: '';
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 4px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* Stile per i dot indicators - simulato con CSS */
-.carousel:has(img:nth-child(2)) {
-  background-image: 
-    radial-gradient(circle, rgba(255,255,255,0.8) 3px, transparent 3px),
-    radial-gradient(circle, rgba(255,255,255,0.4) 3px, transparent 3px);
-  background-size: 12px 12px, 12px 12px;
-  background-position: 
-    calc(50% - 6px) calc(100% - 12px),
-    calc(50% + 6px) calc(100% - 12px);
-  background-repeat: no-repeat;
-}
-
-.carousel:has(img:nth-child(3)) {
-  background-image: 
-    radial-gradient(circle, rgba(255,255,255,0.8) 3px, transparent 3px),
-    radial-gradient(circle, rgba(255,255,255,0.4) 3px, transparent 3px),
-    radial-gradient(circle, rgba(255,255,255,0.4) 3px, transparent 3px);
-  background-position: 
-    calc(50% - 12px) calc(100% - 12px),
-    50% calc(100% - 12px),
-    calc(50% + 12px) calc(100% - 12px);
-}
-
-.carousel:has(img:nth-child(4)) {
-  background-image: 
-    radial-gradient(circle, rgba(255,255,255,0.8) 3px, transparent 3px),
-    radial-gradient(circle, rgba(255,255,255,0.4) 3px, transparent 3px),
-    radial-gradient(circle, rgba(255,255,255,0.4) 3px, transparent 3px),
-    radial-gradient(circle, rgba(255,255,255,0.4) 3px, transparent 3px);
-  background-position: 
-    calc(50% - 18px) calc(100% - 12px),
-    calc(50% - 6px) calc(100% - 12px),
-    calc(50% + 6px) calc(100% - 12px),
-    calc(50% + 18px) calc(100% - 12px);
 }
 
 /* Content delle card */
@@ -271,6 +227,7 @@ header p {
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
@@ -307,16 +264,6 @@ header p {
 
 .next:active {
   transform: translateY(-50%) scale(0.9);
-}
-
-/* Footer mobile */
-footer {
-  background: var(--primary);
-  color: white;
-  text-align: center;
-  padding: 1.5rem 1rem;
-  font-size: 0.85rem;
-  margin-top: 2rem;
 }
 
 /* Container per le sezioni */
@@ -504,6 +451,16 @@ footer {
   0% { box-shadow: 0 4px 20px rgba(228, 64, 95, 0.4); }
   50% { box-shadow: 0 4px 30px rgba(228, 64, 95, 0.6); }
   100% { box-shadow: 0 4px 20px rgba(228, 64, 95, 0.4); }
+}
+
+/* Footer mobile */
+footer {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.85rem;
+  margin-top: 2rem;
 }
 
 /* Tablet styles */
