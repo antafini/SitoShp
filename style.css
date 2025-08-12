@@ -1,163 +1,279 @@
-/* Stile generale */
-body {
-  font-family: 'Segoe UI', Tahoma, sans-serif;
-  margin: 0;
-  background: #fff8f0;
-  color: #333;
+/* Import font moderna per mobile */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables ottimizzate per mobile */
+:root {
+  --primary: #ff6b9d;
+  --primary-light: #ffb3d1;
+  --secondary: #4ecdc4;
+  --accent: #ffd93d;
+  --bg: #fafafa;
+  --card-bg: #ffffff;
+  --text: #2c3e50;
+  --text-light: #7f8c8d;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15);
+  --border-radius: 16px;
+  --transition: all 0.3s ease;
 }
 
-/* Header */
+/* Reset ottimizzato */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header mobile-first */
 header {
-  background: linear-gradient(135deg, #ff9aa2, #ffb6b9);
-  color: white;
-  padding: 1.5rem 1rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  padding: 2rem 1rem 2.5rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '🎂';
+  position: absolute;
+  font-size: 4rem;
+  opacity: 0.1;
+  top: 20px;
+  right: 20px;
+  animation: bounce 3s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
 header h1 {
-  margin: 0;
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  background: linear-gradient(90deg, #ff9aa2, #f78fb3, #a18cd1, #89f7fe);
-  background-clip: text; /* standard */
-  -webkit-background-clip: text; /* per WebKit */
-  -webkit-text-fill-color: transparent;
-  color: transparent; /* standard */
-  letter-spacing: 2px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  color: white;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  letter-spacing: -0.5px;
 }
 
 header p {
-  margin-top: 0.5rem;
-  font-size: 1.05rem;
-  font-style: italic;
-  opacity: 0.95;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
 }
 
-
-
+/* Gallery ottimizzata per mobile */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-/* Card */
+/* Card design mobile-optimized */
 .card {
-  background: white;
-  border-radius: 12px;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-}
-.card img {
-  width: 100%;
-  height: 350px; /* altezza uniforme su desktop/tablet */
-  object-fit: cover; /* riempie e ritaglia mantenendo il centro */
-  object-position: center; /* mantiene il soggetto al centro */
-  border-radius: 8px 8px 0 0;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 107, 157, 0.1);
 }
 
-@media (max-width: 500px) {
-  .card img {
-    height: 220px; /* più bassa su smartphone */
-  }
+.card:active {
+  transform: scale(0.98);
 }
 
-
-
-.card h3 {
-  margin: 0.6rem;
-  font-size: 1.3rem;
-  color: #f40ac9;
-}
-.card p {
-  margin: 0.6rem;
-  font-size: 0.95rem;
-  color: #555;
-}
-
-/* Carousel */
+/* Carousel ottimizzato per touch - scrollabile orizzontalmente */
 .carousel {
+  position: relative;
+  background: #f8f9fa;
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  gap: 5px;
+  gap: 0;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
+
+.carousel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
 .carousel img {
   flex: 0 0 100%;
-  scroll-snap-align: center;
   width: 100%;
-  border-radius: 8px;
+  height: 280px;
+  object-fit: cover;
   cursor: pointer;
+  transition: var(--transition);
+  scroll-snap-align: start;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.85rem;
-  color: #777;
-  background: #ffe4e6;
+.carousel img:hover {
+  filter: brightness(1.05);
 }
 
-/* Ottimizzazione mobile */
-@media (max-width: 500px) {
-  header h1 {
-    font-size: 1.7rem;
-  }
-  header p {
-    font-size: 0.9rem;
-  }
-  .card h3 {
-    font-size: 1.1rem;
-  }
-  .card p {
-    font-size: 0.85rem;
-  }
+/* Indicatori per carousel con più immagini */
+.carousel:has(img:nth-child(2))::after {
+  content: '📷 ' attr(data-count, '2+') ' foto';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  z-index: 2;
+  pointer-events: none;
 }
 
+/* Dots indicator per carousel */
+.carousel:has(img:nth-child(2))::before {
+  content: '';
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Stile per i dot indicators - simulato con CSS */
+.carousel:has(img:nth-child(2)) {
+  background-image: 
+    radial-gradient(circle, rgba(255,255,255,0.8) 3px, transparent 3px),
+    radial-gradient(circle, rgba(255,255,255,0.4) 3px, transparent 3px);
+  background-size: 12px 12px, 12px 12px;
+  background-position: 
+    calc(50% - 6px) calc(100% - 12px),
+    calc(50% + 6px) calc(100% - 12px);
+  background-repeat: no-repeat;
+}
+
+.carousel:has(img:nth-child(3)) {
+  background-image: 
+    radial-gradient(circle, rgba(255,255,255,0.8) 3px, transparent 3px),
+    radial-gradient(circle, rgba(255,255,255,0.4) 3px, transparent 3px),
+    radial-gradient(circle, rgba(255,255,255,0.4) 3px, transparent 3px);
+  background-position: 
+    calc(50% - 12px) calc(100% - 12px),
+    50% calc(100% - 12px),
+    calc(50% + 12px) calc(100% - 12px);
+}
+
+.carousel:has(img:nth-child(4)) {
+  background-image: 
+    radial-gradient(circle, rgba(255,255,255,0.8) 3px, transparent 3px),
+    radial-gradient(circle, rgba(255,255,255,0.4) 3px, transparent 3px),
+    radial-gradient(circle, rgba(255,255,255,0.4) 3px, transparent 3px),
+    radial-gradient(circle, rgba(255,255,255,0.4) 3px, transparent 3px);
+  background-position: 
+    calc(50% - 18px) calc(100% - 12px),
+    calc(50% - 6px) calc(100% - 12px),
+    calc(50% + 6px) calc(100% - 12px),
+    calc(50% + 18px) calc(100% - 12px);
+}
+
+/* Content delle card */
+.card h3 {
+  padding: 1.2rem 1.2rem 0.4rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.card p {
+  padding: 0 1.2rem 1.2rem;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Lightbox mobile-optimized */
 #lightbox {
-  display: none; /* <-- qui deve stare "none" */
+  display: none;
   position: fixed;
-  z-index: 9999;
-  top: 0; left: 0;
+  z-index: 10000;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0, 0, 0, 0.95);
   align-items: center;
   justify-content: center;
-  flex-direction: row;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#lightbox.show {
+  opacity: 1;
 }
 
 #lightbox img {
-  max-width: 80%;
+  max-width: 100%;
   max-height: 80%;
-  border-radius: 8px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
 }
 
+#lightbox.show img {
+  transform: scale(1);
+}
+
+/* Controlli lightbox ottimizzati per mobile */
 .close, .prev, .next {
-  position: fixed;
+  position: absolute;
   color: white;
-  font-size: 3rem;
+  font-size: 2rem;
   cursor: pointer;
   user-select: none;
-  padding: 0 10px;
-  transition: color 0.3s ease;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  transition: var(--transition);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
 }
 
-.close:hover, .prev:hover, .next:hover {
-  color: #ff7b89;
+.close:active, .prev:active, .next:active {
+  transform: scale(0.9);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .close {
-  top: 20px;
+  top: 30px;
   right: 30px;
+  background: rgba(255, 107, 157, 0.8);
+}
+
+.close:active {
+  background: rgba(255, 107, 157, 1);
 }
 
 .prev {
@@ -166,13 +282,126 @@ footer {
   transform: translateY(-50%);
 }
 
+.prev:active {
+  transform: translateY(-50%) scale(0.9);
+}
+
 .next {
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
 }
 
+.next:active {
+  transform: translateY(-50%) scale(0.9);
+}
+
+/* Footer mobile */
 footer {
-  font-size: 0.75rem;
-  padding: 0.5rem;
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.85rem;
+  margin-top: 2rem;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  header h1 {
+    font-size: 2.8rem;
+  }
+  
+  .card h3 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    gap: 2.5rem;
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  .close, .prev, .next {
+    width: 60px;
+    height: 60px;
+    font-size: 2.5rem;
+  }
+  
+  .close:hover, .prev:hover, .next:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+  
+  .prev:hover {
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .next:hover {
+    transform: translateY(-50%) scale(1.1);
+  }
+}
+
+/* Animazioni di caricamento */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.card:nth-child(2) { animation-delay: 0.1s; }
+.card:nth-child(3) { animation-delay: 0.2s; }
+.card:nth-child(4) { animation-delay: 0.3s; }
+.card:nth-child(5) { animation-delay: 0.4s; }
+
+/* Ottimizzazioni performance mobile */
+.carousel img {
+  will-change: transform;
+}
+
+#lightbox img {
+  will-change: transform, opacity;
+}
+
+/* Miglioramenti accessibilità */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus states per accessibilità */
+.carousel img:focus,
+.close:focus,
+.prev:focus,
+.next:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
